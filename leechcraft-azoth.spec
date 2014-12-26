@@ -21,6 +21,9 @@ BuildRequires: bzip2-devel
 BuildRequires: qwt-devel
 BuildRequires: pcre-devel
 BuildRequires: qt-mobility-devel
+BuildRequires: qca2-devel
+BuildRequires: telepathy-qt4-devel
+BuildRequires: qjson-devel
 BuildRequires: leechcraft-devel >= %{version}
 
 
