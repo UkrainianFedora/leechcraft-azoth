@@ -29,6 +29,7 @@ BuildRequires: speex-devel
 BuildRequires: libotr-devel
 BuildRequires: libpurple-devel
 BuildRequires: openssl-devel 
+BuildRequires: qoauth-devel
 BuildRequires: leechcraft-devel >= %{version}
 
 
