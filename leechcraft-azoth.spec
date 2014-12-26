@@ -29,7 +29,7 @@ BuildRequires: speex-devel
 BuildRequires: libotr-devel
 BuildRequires: libpurple-devel
 BuildRequires: openssl-devel 
-BuildRequires: qoauth-devel
+BuildRequires: libmsn-devel
 BuildRequires: leechcraft-devel >= %{version}
 
 
@@ -47,9 +47,9 @@ pushd %{_target_platform}
 %{cmake} \
     -DCMAKE_BUILD_TYPE=RelWithDebInfo \
     -DLEECHCRAFT_VERSION="%{version}" \
-    $(cat ../src/CMakeLists.txt | egrep "^option \(ENABLE" | awk '{print $2}' | sed 's/(//g;s/.*/-D\0=False/g;s/\(AZOTH[^=]*=\)False/\1True/g' | xargs) \
-    $(cat ../src/plugins/azoth/CMakeLists.txt | egrep "^option \(ENABLE" | awk '{print $2}' | sed 's/(//g;s/.*/-D\0=True/g;') \
-    $(cat ../src/CMakeLists.txt | grep cmake_dependent_option | grep ENABLE | awk '{print $2}' | sed 's/(//g;s/.*/-D\0=False/g' | xargs) \
+    $(cat ../src/CMakeLists.txt | egrep "^option \(ENABLE" | awk '{print $2}' | sed 's/(//;s/.*/-D\0=False/;s/\(AZOTH[^=]*=\)False/\1True/' | xargs) \
+    $(cat ../src/plugins/azoth/CMakeLists.txt | egrep "^option \(ENABLE" | awk '{print $2}' | sed 's/(//;s/.*/-D\0=True/;s/\(.*WOODPECKER=\)True/\1False/') \
+    $(cat ../src/CMakeLists.txt | grep cmake_dependent_option | grep ENABLE | awk '{print $2}' | sed 's/(//;s/.*/-D\0=False/' | xargs) \
     ../src
 
 cd plugins/azoth
