@@ -27,6 +27,8 @@ BuildRequires: qjson-devel
 BuildRequires: qxmpp-devel
 BuildRequires: speex-devel
 BuildRequires: libotr-devel
+BuildRequires: libpurple-devel
+BuildRequires: openssl-devel 
 BuildRequires: leechcraft-devel >= %{version}
 
 
