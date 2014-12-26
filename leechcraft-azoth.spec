@@ -24,6 +24,9 @@ BuildRequires: qt-mobility-devel
 BuildRequires: qca2-devel
 BuildRequires: telepathy-qt4-devel
 BuildRequires: qjson-devel
+BuildRequires: qxmpp-devel
+BuildRequires: speex-devel
+BuildRequires: libotr-devel
 BuildRequires: leechcraft-devel >= %{version}
 
 
