@@ -20,6 +20,7 @@ BuildRequires: qt-webkit-devel
 BuildRequires: bzip2-devel
 BuildRequires: qwt-devel
 BuildRequires: pcre-devel
+BuildRequires: qt-mobility-devel
 BuildRequires: leechcraft-devel >= %{version}
 
 
