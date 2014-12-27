@@ -101,13 +101,13 @@ do
    %find_lang $i --with-qt --without-mo
 done
 
-cat *.lang > leechcraft_azoth.lang
+cat *.lang > azoth.lang
 
 
 %post -p /sbin/ldconfig
 %postun -p /sbin/ldconfig
 
-%files -f leechcraft_azoth.lang
+%files -f azoth.lang
 %{plugin_dir}/libleechcraft_azoth*.so 
 %{_datadir}/%{product_name}/azoth/emoticons/*
 %{_datadir}/%{product_name}/azoth/iconsets/*
