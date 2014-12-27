@@ -67,8 +67,9 @@ popd
 
 %install
 rm -rf $RPM_BUILD_ROOT
-cd %{_target_platform}/plugins/azoth/
+pushd %{_target_platform}/plugins/azoth/
 make install/fast DESTDIR=$RPM_BUILD_ROOT
+popd
 
 declare -a arr=("leechcraft_azoth"\
                 "leechcraft_azoth_acetamide"\
