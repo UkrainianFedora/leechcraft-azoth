@@ -95,6 +95,8 @@ declare -a arr=("leechcraft_azoth"\
                 "leechcraft_azoth_xoox"\
                 "leechcraft_azoth_xtazy"\
                 "leechcraft_azoth_zheet"\ 
+                "leechcraft_azoth_shx"\
+                "leechcraft_azoth_standardstyles"\
                 )
 
 for i in "${arr[@]}"
@@ -110,9 +112,12 @@ cat *.lang > azoth.lang
 
 %files -f azoth.lang
 %{plugin_dir}/libleechcraft_azoth*.so 
+%{_datadir}/applications/leechcraft-azoth-acetamide.desktop
+%{_datadir}/applications/leechcraft-azoth-xoox.desktop
 %{_datadir}/%{product_name}/azoth/emoticons/*
 %{_datadir}/%{product_name}/azoth/iconsets/*
 %{_datadir}/%{product_name}/azoth/styles/*
+%{_datadir}/%{product_name}/azoth/lc_azoth_modnok_latexconvert.sh
 %{settings_dir}/*.xml
 
 
