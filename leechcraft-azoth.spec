@@ -9,14 +9,16 @@
 Name:           leechcraft-azoth
 Summary:        IM Client for LeechCraft
 Version:        0.6.75
-Release:        3%{?dist}
+Release:        7%{?dist}
 License:        GPLv2+
 Url:            http://leechcraft.org
 Source0:        http://dist.leechcraft.org/LeechCraft/%{version}/leechcraft-0.6.70-%{git_version}.tar.xz
 Patch1:         001-fix-qwt-cmake-script.patch
 Patch3:         003-fix-azoth-dependencies.patch
+Patch4:         004-finding-qxmpp-qt5.patch
 
 BuildRequires: cmake
+BuildRequires: clang
 BuildRequires: boost-devel
 BuildRequires: qt5-qtbase-devel
 BuildRequires: qt5-qtwebkit-devel
@@ -25,8 +27,7 @@ BuildRequires: bzip2-devel
 BuildRequires: pcre-devel
 BuildRequires: qca2-devel
 BuildRequires: qjson-devel
-BuildRequires: qxmpp-devel
-BuildRequires: speex-devel
+BuildRequires: qxmpp-qt5-devel
 BuildRequires: libotr-devel
 BuildRequires: libpurple-devel
 BuildRequires: openssl-devel
@@ -40,7 +41,7 @@ This package contains an IM client for LeechCraft.
 
 %package devel
 Summary:    Leechcraft Azoth Development Files
-Requires:   %{name}%{?_isa} = %{full_version}
+Requires:   %{name}%{?_isa} >= %{version}
 
 %description devel
 This package contains header files required to develop new modules for
@@ -51,6 +52,7 @@ LeechCraft Azoth.
 %setup -qn %{product_name}-0.6.70-%{git_version}
 %patch1 -p 0
 %patch3 -p 0
+%patch4 -p 0
 
 
 %build
@@ -133,7 +135,7 @@ cat *.lang > azoth.lang
 %{_includedir}/%{product_name}/*
 
 %changelog
-* Fri May 29 2015 Minh Ngo <minh@fedoraproject.org> - 0.6.75-1
+* Fri May 29 2015 Minh Ngo <minh@fedoraproject.org> - 0.6.75-7
 - Qt5, 0.6.75
 
 * Sat Dec 27 2014 Minh Ngo <minh@fedoraproject.org> - 0.6.70-2

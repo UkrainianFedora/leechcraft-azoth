@@ -1,0 +1,13 @@
+diff --git src/plugins/azoth/plugins/xoox/cmake/FindQXmpp.cmake src/plugins/azoth/plugins/xoox/cmake/FindQXmpp.cmake
+index 652d57c..507b529 100644
+--- src/plugins/azoth/plugins/xoox/cmake/FindQXmpp.cmake
++++ src/plugins/azoth/plugins/xoox/cmake/FindQXmpp.cmake
+@@ -12,7 +12,7 @@
+ 
+ find_path(QXMPP_INCLUDE_DIR
+ 	NAMES
+-	qxmpp/QXmppClient.h
++	qxmpp-qt5/QXmppClient.h
+ 	HINTS
+ 	${QXMPP_DIR}/include
+ 	PATH
