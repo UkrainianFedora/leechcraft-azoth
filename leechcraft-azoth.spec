@@ -1,34 +1,35 @@
 %define product_name leechcraft
-%define plugin_dir %{_libdir}/%{product_name}/plugins
+%define plugin_dir %{_libdir}/%{product_name}/plugins-qt5
 %define translations_dir %{_datadir}/%{product_name}/translations
 %define settings_dir %{_datadir}/%{product_name}/settings
 %define full_version %{version}-%{release}
+%define git_version 3466-g864bd1a
+%global optflags %(echo %{optflags} | sed 's/-D_FORTIFY_SOURCE=2 //')
 
 Name:           leechcraft-azoth
 Summary:        IM Client for LeechCraft
-Version:        0.6.70
-Release:        2%{?dist}
+Version:        0.6.75
+Release:        3%{?dist}
 License:        GPLv2+
 Url:            http://leechcraft.org
-Source0:        http://dist.leechcraft.org/LeechCraft/0.6.70/leechcraft-0.6.70.tar.xz 
-
+Source0:        http://dist.leechcraft.org/LeechCraft/%{version}/leechcraft-0.6.70-%{git_version}.tar.xz
+Patch1:         001-fix-qwt-cmake-script.patch
+Patch3:         003-fix-azoth-dependencies.patch
 
 BuildRequires: cmake
 BuildRequires: boost-devel
-BuildRequires: qt4-devel
-BuildRequires: qt-webkit-devel
+BuildRequires: qt5-qtbase-devel
+BuildRequires: qt5-qtwebkit-devel
+BuildRequires: qwt-qt5-devel
 BuildRequires: bzip2-devel
-BuildRequires: qwt-devel
 BuildRequires: pcre-devel
-BuildRequires: qt-mobility-devel
 BuildRequires: qca2-devel
-BuildRequires: telepathy-qt4-devel
 BuildRequires: qjson-devel
 BuildRequires: qxmpp-devel
 BuildRequires: speex-devel
 BuildRequires: libotr-devel
 BuildRequires: libpurple-devel
-BuildRequires: openssl-devel 
+BuildRequires: openssl-devel
 BuildRequires: libmsn-devel
 BuildRequires: leechcraft-devel >= %{version}
 
@@ -47,7 +48,9 @@ LeechCraft Azoth.
 
 
 %prep
-%setup -qn %{product_name}-%{version}
+%setup -qn %{product_name}-0.6.70-%{git_version}
+%patch1 -p 0
+%patch3 -p 0
 
 
 %build
@@ -56,18 +59,21 @@ pushd %{_target_platform}
 %{cmake} \
     -DCMAKE_BUILD_TYPE=RelWithDebInfo \
     -DLEECHCRAFT_VERSION="%{version}" \
+    -DUSE_QT5=True \
+    -DCMAKE_C_COMPILER=clang \
+    -DCMAKE_CXX_COMPILER=clang++ \
     $(cat ../src/CMakeLists.txt | egrep "^(cmake_dependent_)?option \(ENABLE" | awk '{print $2}' | sed 's/^(/-D/;s/$/=False/;s/\(AZOTH[^=]*=\)False/\1True/' | xargs) \
-    $(cat ../src/plugins/azoth/CMakeLists.txt | egrep "^option \(ENABLE" | awk '{print $2}' | sed 's/^(/-D/;s/$/=True/;s/\(WOODPECKER\|ASTRALITY\)=True/\1=False/' | xargs) \
+    $(cat ../src/plugins/azoth/CMakeLists.txt | egrep "^option \(ENABLE" | awk '{print $2}' | sed 's/^(/-D/;s/$/=True/;s/\(WOODPECKER\|ASTRALITY\|SARIN\)=True/\1=False/' | xargs) \
     ../src
 
 cd plugins/azoth
-make %{?_smp_mflags} 
+make %{?_smp_mflags}
 popd
 
 
 %install
 rm -rf $RPM_BUILD_ROOT
-pushd %{_target_platform}/plugins/azoth/
+pushd %{_target_platform}/plugins/azoth
 make install/fast DESTDIR=$RPM_BUILD_ROOT
 popd
 
@@ -97,6 +103,8 @@ declare -a arr=("leechcraft_azoth"\
                 "leechcraft_azoth_zheet"\ 
                 "leechcraft_azoth_shx"\
                 "leechcraft_azoth_standardstyles"\
+                "leechcraft_azoth_abbrev"\
+                "leechcraft_azoth_tracolor"\
                 )
 
 for i in "${arr[@]}"
@@ -111,9 +119,9 @@ cat *.lang > azoth.lang
 %postun -p /sbin/ldconfig
 
 %files -f azoth.lang
-%{plugin_dir}/libleechcraft_azoth*.so 
-%{_datadir}/applications/leechcraft-azoth-acetamide.desktop
-%{_datadir}/applications/leechcraft-azoth-xoox.desktop
+%{plugin_dir}/libleechcraft_azoth*.so
+%{_datadir}/applications/leechcraft-azoth-acetamide-qt5.desktop
+%{_datadir}/applications/leechcraft-azoth-xoox-qt5.desktop
 %{_datadir}/%{product_name}/azoth/emoticons/*
 %{_datadir}/%{product_name}/azoth/iconsets/*
 %{_datadir}/%{product_name}/azoth/styles/*
@@ -125,6 +133,9 @@ cat *.lang > azoth.lang
 %{_includedir}/%{product_name}/*
 
 %changelog
+* Fri May 29 2015 Minh Ngo <minh@fedoraproject.org> - 0.6.75-1
+- Qt5, 0.6.75
+
 * Sat Dec 27 2014 Minh Ngo <minh@fedoraproject.org> - 0.6.70-2
 - Fixing bogus date
 

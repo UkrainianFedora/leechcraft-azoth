@@ -1,0 +1,134 @@
+diff --git src/plugins/azoth/plugins/abbrev/CMakeLists.txt src/plugins/azoth/plugins/abbrev/CMakeLists.txt
+index 04a88c7..9fbbd9a 100644
+--- src/plugins/azoth/plugins/abbrev/CMakeLists.txt
++++ src/plugins/azoth/plugins/abbrev/CMakeLists.txt
+@@ -26,4 +26,4 @@ target_link_libraries (leechcraft_azoth_abbrev
+ 	)
+ install (TARGETS leechcraft_azoth_abbrev DESTINATION ${LC_PLUGINS_DEST})
+ 
+-FindQtLibs (leechcraft_azoth_abbrev Core)
++FindQtLibs (leechcraft_azoth_abbrev Core Widgets)
+diff --git src/plugins/azoth/plugins/birthdaynotifier/CMakeLists.txt src/plugins/azoth/plugins/birthdaynotifier/CMakeLists.txt
+index 3d8199d..7bb8b7f 100644
+--- src/plugins/azoth/plugins/birthdaynotifier/CMakeLists.txt
++++ src/plugins/azoth/plugins/birthdaynotifier/CMakeLists.txt
+@@ -30,4 +30,4 @@ install (TARGETS leechcraft_azoth_birthdaynotifier DESTINATION ${LC_PLUGINS_DEST
+ install (FILES azothbirthdaynotifiersettings.xml DESTINATION ${LC_SETTINGS_DEST})
+ install (FILES ${BIRTHDAYNOTIFIER_COMPILED_TRANSLATIONS} DESTINATION ${LC_TRANSLATIONS_DEST})
+ 
+-FindQtLibs (leechcraft_azoth_birthdaynotifier Core)
++FindQtLibs (leechcraft_azoth_birthdaynotifier Core Widgets)
+diff --git src/plugins/azoth/plugins/depester/CMakeLists.txt src/plugins/azoth/plugins/depester/CMakeLists.txt
+index d208561..f00ed59 100644
+--- src/plugins/azoth/plugins/depester/CMakeLists.txt
++++ src/plugins/azoth/plugins/depester/CMakeLists.txt
+@@ -30,4 +30,4 @@ target_link_libraries (leechcraft_azoth_depester
+ install (TARGETS leechcraft_azoth_depester DESTINATION ${LC_PLUGINS_DEST})
+ install (FILES ${DEPESTER_COMPILED_TRANSLATIONS} DESTINATION ${LC_TRANSLATIONS_DEST})
+ 
+-FindQtLibs (leechcraft_azoth_depester Core)
++FindQtLibs (leechcraft_azoth_depester Core Widgets)
+diff --git src/plugins/azoth/plugins/hili/CMakeLists.txt src/plugins/azoth/plugins/hili/CMakeLists.txt
+index cb3d45d..17c66ee 100644
+--- src/plugins/azoth/plugins/hili/CMakeLists.txt
++++ src/plugins/azoth/plugins/hili/CMakeLists.txt
+@@ -27,4 +27,4 @@ target_link_libraries (leechcraft_azoth_hili
+ install (TARGETS leechcraft_azoth_hili DESTINATION ${LC_PLUGINS_DEST})
+ install (FILES azothhilisettings.xml DESTINATION ${LC_SETTINGS_DEST})
+ 
+-FindQtLibs (leechcraft_azoth_hili Core)
++FindQtLibs (leechcraft_azoth_hili Core Widgets)
+diff --git src/plugins/azoth/plugins/isterique/CMakeLists.txt src/plugins/azoth/plugins/isterique/CMakeLists.txt
+index 9f9abe8..9df5beb 100644
+--- src/plugins/azoth/plugins/isterique/CMakeLists.txt
++++ src/plugins/azoth/plugins/isterique/CMakeLists.txt
+@@ -29,4 +29,4 @@ target_link_libraries (leechcraft_azoth_isterique
+ install (TARGETS leechcraft_azoth_isterique DESTINATION ${LC_PLUGINS_DEST})
+ install (FILES azothisteriquesettings.xml DESTINATION ${LC_SETTINGS_DEST})
+ 
+-FindQtLibs (leechcraft_azoth_isterique Core)
++FindQtLibs (leechcraft_azoth_isterique Core Widgets)
+diff --git src/plugins/azoth/plugins/juick/CMakeLists.txt src/plugins/azoth/plugins/juick/CMakeLists.txt
+index a6bea8b..3211814 100644
+--- src/plugins/azoth/plugins/juick/CMakeLists.txt
++++ src/plugins/azoth/plugins/juick/CMakeLists.txt
+@@ -28,4 +28,4 @@ target_link_libraries (leechcraft_azoth_juick
+ 	)
+ install (TARGETS leechcraft_azoth_juick DESTINATION ${LC_PLUGINS_DEST})
+ 
+-FindQtLibs (leechcraft_azoth_juick Core)
++FindQtLibs (leechcraft_azoth_juick Core Widgets)
+diff --git src/plugins/azoth/plugins/keeso/CMakeLists.txt src/plugins/azoth/plugins/keeso/CMakeLists.txt
+index f868880..dff445a 100644
+--- src/plugins/azoth/plugins/keeso/CMakeLists.txt
++++ src/plugins/azoth/plugins/keeso/CMakeLists.txt
+@@ -24,4 +24,4 @@ target_link_libraries (leechcraft_azoth_keeso
+ 	)
+ install (TARGETS leechcraft_azoth_keeso DESTINATION ${LC_PLUGINS_DEST})
+ 
+-FindQtLibs (leechcraft_azoth_keeso Core)
++FindQtLibs (leechcraft_azoth_keeso Core Widgets)
+diff --git src/plugins/azoth/plugins/lastseen/CMakeLists.txt src/plugins/azoth/plugins/lastseen/CMakeLists.txt
+index fa33f2b..5ce272c 100644
+--- src/plugins/azoth/plugins/lastseen/CMakeLists.txt
++++ src/plugins/azoth/plugins/lastseen/CMakeLists.txt
+@@ -29,4 +29,4 @@ target_link_libraries (leechcraft_azoth_lastseen
+ 	)
+ install (TARGETS leechcraft_azoth_lastseen DESTINATION ${LC_PLUGINS_DEST})
+ 
+-FindQtLibs (leechcraft_azoth_lastseen Concurrent)
++FindQtLibs (leechcraft_azoth_lastseen Concurrent Widgets)
+diff --git src/plugins/azoth/plugins/modnok/CMakeLists.txt src/plugins/azoth/plugins/modnok/CMakeLists.txt
+index 0bea8b9..6b55ff8 100644
+--- src/plugins/azoth/plugins/modnok/CMakeLists.txt
++++ src/plugins/azoth/plugins/modnok/CMakeLists.txt
+@@ -28,4 +28,4 @@ install (TARGETS leechcraft_azoth_modnok DESTINATION ${LC_PLUGINS_DEST})
+ install (PROGRAMS lc_azoth_modnok_latexconvert.sh DESTINATION ${LC_SHARE_DEST}/azoth)
+ install (FILES azothmodnoksettings.xml DESTINATION ${LC_SETTINGS_DEST})
+ 
+-FindQtLibs (leechcraft_azoth_modnok Core)
++FindQtLibs (leechcraft_azoth_modnok Core Widgets)
+diff --git src/plugins/azoth/plugins/mucommands/CMakeLists.txt src/plugins/azoth/plugins/mucommands/CMakeLists.txt
+index 302668a..043ed57 100644
+--- src/plugins/azoth/plugins/mucommands/CMakeLists.txt
++++ src/plugins/azoth/plugins/mucommands/CMakeLists.txt
+@@ -40,7 +40,7 @@ target_link_libraries (leechcraft_azoth_mucommands
+ 	)
+ install (TARGETS leechcraft_azoth_mucommands DESTINATION ${LC_PLUGINS_DEST})
+ 
+-FindQtLibs (leechcraft_azoth_mucommands Core Xml)
++FindQtLibs (leechcraft_azoth_mucommands Core Xml Widgets)
+ 
+ if (ENABLE_AZOTH_MUCOMMANDS_TESTS)
+ 	include_directories (${CMAKE_CURRENT_BINARY_DIR}/tests ${CMAKE_CURRENT_SOURCE_DIR})
+diff --git src/plugins/azoth/plugins/nativeemoticons/CMakeLists.txt src/plugins/azoth/plugins/nativeemoticons/CMakeLists.txt
+index cb7ac9b..3d32c9b 100644
+--- src/plugins/azoth/plugins/nativeemoticons/CMakeLists.txt
++++ src/plugins/azoth/plugins/nativeemoticons/CMakeLists.txt
+@@ -33,4 +33,4 @@ target_link_libraries (leechcraft_azoth_nativeemoticons
+ install (TARGETS leechcraft_azoth_nativeemoticons DESTINATION ${LC_PLUGINS_DEST})
+ install (DIRECTORY share/azoth DESTINATION ${LC_SHARE_DEST})
+ 
+-FindQtLibs (leechcraft_azoth_nativeemoticons Xml)
++FindQtLibs (leechcraft_azoth_nativeemoticons Xml Widgets)
+diff --git src/plugins/azoth/plugins/shx/CMakeLists.txt src/plugins/azoth/plugins/shx/CMakeLists.txt
+index acb5190..3ecd9e3 100644
+--- src/plugins/azoth/plugins/shx/CMakeLists.txt
++++ src/plugins/azoth/plugins/shx/CMakeLists.txt
+@@ -29,4 +29,4 @@ target_link_libraries (leechcraft_azoth_shx
+ install (TARGETS leechcraft_azoth_shx DESTINATION ${LC_PLUGINS_DEST})
+ install (FILES azothshxsettings.xml DESTINATION ${LC_SETTINGS_DEST})
+ 
+-FindQtLibs (leechcraft_azoth_shx Core)
++FindQtLibs (leechcraft_azoth_shx Core Widgets)
+diff --git src/plugins/azoth/plugins/tracolor/CMakeLists.txt src/plugins/azoth/plugins/tracolor/CMakeLists.txt
+index 2cb6ba2..bf66e63 100644
+--- src/plugins/azoth/plugins/tracolor/CMakeLists.txt
++++ src/plugins/azoth/plugins/tracolor/CMakeLists.txt
+@@ -32,5 +32,5 @@ target_link_libraries (leechcraft_azoth_tracolor
+ install (TARGETS leechcraft_azoth_tracolor DESTINATION ${LC_PLUGINS_DEST})
+ install (FILES azothtracolorsettings.xml DESTINATION ${LC_SETTINGS_DEST})
+ 
+-FindQtLibs (leechcraft_azoth_tracolor Core)
++FindQtLibs (leechcraft_azoth_tracolor Core Widgets)
+ 
