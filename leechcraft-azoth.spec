@@ -9,7 +9,7 @@
 Name:           leechcraft-azoth
 Summary:        IM Client for LeechCraft
 Version:        0.6.75
-Release:        13%{?dist}
+Release:        14%{?dist}
 License:        GPLv2+
 Url:            http://leechcraft.org
 Source0:        http://dist.leechcraft.org/LeechCraft/%{version}/leechcraft-0.6.70-%{git_version}.tar.xz
@@ -144,7 +144,7 @@ cat *.lang > azoth.lang
 %{_includedir}/%{product_name}/*
 
 %changelog
-* Fri May 29 2015 Minh Ngo <minh@fedoraproject.org> - 0.6.75-13
+* Fri May 29 2015 Minh Ngo <minh@fedoraproject.org> - 0.6.75-14
 - Qt5, 0.6.75
 
 * Sat Dec 27 2014 Minh Ngo <minh@fedoraproject.org> - 0.6.70-2
