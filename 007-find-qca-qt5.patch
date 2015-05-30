@@ -1,0 +1,13 @@
+diff --git src/plugins/azoth/cmake/FindQCA2.cmake src/plugins/azoth/cmake/FindQCA2.cmake
+index f61ab59..8266399 100644
+--- src/plugins/azoth/cmake/FindQCA2.cmake
++++ src/plugins/azoth/cmake/FindQCA2.cmake
+@@ -25,7 +25,7 @@ else ()
+ 
+ 	if (NOT WIN32)
+ 		find_package(PkgConfig)
+-		pkg_check_modules(PC_QCA2 QUIET qca2)
++		pkg_check_modules(PC_QCA2 QUIET qca2-qt5)
+ 		set(QCA2_DEFINITIONS ${PC_QCA2_CFLAGS_OTHER})
+ 	endif ()
+ 

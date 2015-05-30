@@ -9,13 +9,14 @@
 Name:           leechcraft-azoth
 Summary:        IM Client for LeechCraft
 Version:        0.6.75
-Release:        12%{?dist}
+Release:        13%{?dist}
 License:        GPLv2+
 Url:            http://leechcraft.org
 Source0:        http://dist.leechcraft.org/LeechCraft/%{version}/leechcraft-0.6.70-%{git_version}.tar.xz
 Patch1:         001-fix-qwt-cmake-script.patch
 Patch3:         003-fix-azoth-dependencies.patch
 Patch4:         004-finding-qxmpp-qt5.patch
+Patch7:         007-find-qca-qt5.patch
 
 BuildRequires: cmake
 BuildRequires: clang
@@ -58,6 +59,7 @@ LeechCraft Azoth.
 %patch1 -p 0
 %patch3 -p 0
 %patch4 -p 0
+%patch7 -p 0
 
 sed -i 's/\${QXMPP_INCLUDE_DIR}\/qxmpp/\${QXMPP_INCLUDE_DIR}\/qxmpp-qt5/' src/plugins/azoth/plugins/xoox/cmake/FindQXmpp.cmake
 
@@ -142,7 +144,7 @@ cat *.lang > azoth.lang
 %{_includedir}/%{product_name}/*
 
 %changelog
-* Fri May 29 2015 Minh Ngo <minh@fedoraproject.org> - 0.6.75-12
+* Fri May 29 2015 Minh Ngo <minh@fedoraproject.org> - 0.6.75-13
 - Qt5, 0.6.75
 
 * Sat Dec 27 2014 Minh Ngo <minh@fedoraproject.org> - 0.6.70-2
